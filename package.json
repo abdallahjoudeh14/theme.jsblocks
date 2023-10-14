@@ -1,0 +1,29 @@
+{
+    "name": "@jsblocks/theme",
+    "version": "1.0.0",
+    "author": "Abdallah Joudeh",
+    "description": "Theme is a JavaScript library allows you to switch between themes easily",
+    "type": "module",
+    "keywords": [
+        "theme",
+        "themes",
+        "library",
+        "vanilla",
+        "dark",
+        "light"
+    ],
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/abdallahJoudeh14/theme.jsblocks.git"
+    },
+    "license": "MIT",
+    "homepage": "https://github.com/abdallahJoudeh14/theme.jsblocks#readme",
+    "devDependencies": {
+        "@rollup/plugin-terser": "^0.4.4",
+        "rollup": "^4.0.2"
+    }
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="../dist/theme.min.js"></script>
+        <script>
+            const theme = new Theme("dark", true);
+            theme.init();
+        </script>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+                font-family: sans-serif;
+            }
+
+            body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                height: 100vh;
+                row-gap: 1rem;
+            }
+
+            button {
+                font-size: 1rem;
+                padding: 5px;
+                text-transform: capitalize;
+            }
+            .current-theme {
+                display: flex;
+                column-gap: 0.5ch;
+                font-size: 1.5rem;
+                text-transform: capitalize;
+            }
+
+            [data-theme="light"] body {
+                background-color: #fff;
+            }
+
+            [data-theme="dark"] body {
+                background-color: #252525;
+            }
+
+            [data-theme="light"] p {
+                color: #252525;
+            }
+
+            [data-theme="dark"] p {
+                color: #fff;
+            }
+        </style>
+
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="group">
+            <button type="button" class="light-theme">Light</button>
+            <button type="button" class="dark-theme">Dark</button>
+            <button type="button" class="system-theme">system</button>
+            <button type="button" class="toggle-theme"></button>
+        </div>
+        <div class="current-theme">
+            <p>current theme:</p>
+            <p class="theme-state"></p>
+        </div>
+        <script>
+            const lightThemeBtn = document.querySelector(".light-theme");
+            const darkThemeBtn = document.querySelector(".dark-theme");
+            const systemThemeBtn = document.querySelector(".system-theme");
+            const toggleThemeBtn = document.querySelector(".toggle-theme");
+            const themeState = document.querySelector(".theme-state");
+
+            lightThemeBtn.addEventListener("click", () => {
+                theme.toggleTo("light");
+            });
+
+            darkThemeBtn.addEventListener("click", () => {
+                theme.toggleTo("dark");
+            });
+
+            systemThemeBtn.addEventListener("click", () => {
+                theme.toggleTo("system");
+            });
+
+            toggleThemeBtn.addEventListener("click", () => {
+                theme.toggleTheme();
+            });
+
+            theme.onLoad(() => {
+                themeState.textContent = theme.currentTheme;
+                toggleThemeBtn.textContent = theme.currentTheme;
+            });
+
+            theme.onToggle(() => {
+                themeState.textContent = theme.currentTheme;
+                toggleThemeBtn.textContent = theme.currentTheme;
+            });
+        </script>
+    </body>
+</html>
