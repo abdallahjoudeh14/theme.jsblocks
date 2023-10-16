@@ -145,5 +145,3 @@ Object.keys(prototypes).forEach((prototypeGroup) => {
         Theme.prototype[prototypeMethod] = prototypes[prototypeGroup][prototypeMethod];
     });
 });
-
-export { Theme as default };
